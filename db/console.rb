@@ -21,13 +21,9 @@ album2.save
 artist1.name = 'Iron Maiden'
 artist1.update
 
-artist2.delete
 
 album1.genre = 'metal'
 album1.update
 
-album2.delete
-# search_result = Artist.find_artist_id('Iron Maiden')
-# puts Album.find_album_by_artist_id(search_result.id)
 binding.pry
 nil

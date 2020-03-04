@@ -56,23 +56,13 @@ class Album
      return album
    end
 
-   # def self.find_album_by_artist_id(artist_id)
-   #   sql = "SELECT * FROM albums WHERE artist_id = $1"
-   #   values = [artist_id]
-   #   result = SqlRunner.run(sql, values)
-   #   album_hash = result.first
-   #   album = Album.new(album_hash)
-   #   return album
-   # end
-
-   # def self.find_by_artist(name)
-   #   sql = "SELECT * FROM albums WHERE name = $1"
-   #   values = [name]
-   #   result = SqlRunner.run(sql, values)
-   #   album_hash = result.first
-   #   album = Album.new(album_hash)
-   #   return album
-   # end
+   def get_artist()
+     sql = "SELECT * FROM artists
+            WHERE id = $1;"
+     values = [@artist_id]
+     result = SqlRunner.run(sql, values)
+     return result.map {|artist| Artist.new(artist)}
+   end
 
    def update()
      sql = "
